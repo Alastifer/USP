@@ -1,0 +1,32 @@
+﻿@model USP.ViewModels.LoginModel
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Вход</title>
+    <link href="~/css/css.css" rel="stylesheet">
+</head>
+<body>
+    <form asp-action="Login" asp-controller="Account" asp-anti-forgery="true">
+        <div id="login_form">
+            <h2 style="text-align: center;">Вход в систему</h2>
+            <p class="input_data">
+                <label asp-for="Email">Ваш логин</label>
+                <br />
+                <input type="text" asp-for="Email" required placeholder="Логин" size="38" />
+                <span asp-validation-for="Email" />
+            </p>
+            <p class="input_data">
+                <label asp-for="Password">Пароль</label>
+                <br />
+                <input asp-for="Password" placeholder="Пароль" required size="38"/>
+                <span asp-validation-for="Password" />
+            </p>
+            <p class="input_data">
+                <input style="position: relative; left: 200px;" type="submit" value="Войти" class="btn" />
+            </p>
+            <div style="color: red;" class="validation" asp-validation-summary="ModelOnly"></div>
+        </div>
+    </form>
+</body>
+</html>

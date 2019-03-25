@@ -1,0 +1,72 @@
+body {
+	background: url("/images/background.jpg");
+    background-size: 100%;
+}
+
+#login_form {
+    position: absolute;
+    width: 331px;
+    margin-left: 35%;
+    margin-right: 39%;
+    margin-top: 16%;
+    background-color: #fff;
+    padding: 6px 6px;
+    border: 1px solid rgba(147, 184, 189,0.8);
+    box-shadow: 0pt 2px 5px rgba(105, 108, 109, 0.7), 0px 0px 8px 5px rgba(208, 223, 226, 0.4) inset;
+}
+
+.input_data {
+    position: relative;
+    left: 15px;
+}
+
+
+ul {
+    list-style: none;
+    margin: 0 auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+i {
+    margin-right: 10px;
+}
+
+nav {
+    display: block;
+    margin: 0 auto 30px;
+}
+
+.one ul {
+    padding: 1em 0;
+    background-color: #ffffff;
+}
+
+.one a {
+    padding: 10px 10px;
+    background: #fff;
+    color: #695753;
+}
+
+    .one a:hover {
+        background: #b19891;
+    }
+
+.one li {
+    display: inline;
+    background-color: #fff;
+}
+
+#main_workers_table tr:hover {
+    background-color: #ddd;
+}
+
+tr {
+    margin: 10px 10px;
+}
+
+#main_workers_table td, #main_workers_table tr {
+    border: 1px solid black;
+}
