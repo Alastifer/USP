@@ -69,3 +69,63 @@ tr {
 #main_workers_table td, #main_workers_table tr {
     border: 1px solid black;
 }
+
+#no {
+    width: auto;
+}
+
+#passport, #purposes {
+    margin-left: 60px;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+input[type="text"] {
+    line-height: 1.5em;
+    width: 250px;
+    border-radius: 6px;
+}
+
+input[type="password"] {
+    line-height: 1.5em;
+    width: 250px;
+    border-radius: 6px;
+}
+
+#passport {
+    display: flex;
+    flex-direction: row;
+}
+
+#block2 {
+    margin-left: 80px;
+}
+
+#buttom_creation {
+    border-radius: 6px;
+    margin-top: 10px;
+    margin-left: 90%;
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+}
+
+#label {
+    background-color: rgba(255, 255, 255);
+}
+
+fieldset {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+#main_workers_table tr:hover {
+    background-color: #ddd;
+}
+
+tr {
+    margin: 10px 10px;
+}
+
+#main_workers_table td, #main_workers_table tr {
+    border: 1px solid black;
+}

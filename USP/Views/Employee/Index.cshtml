@@ -1,3 +1,45 @@
 ﻿@model USP.Models.Employee
 
-@Model.Passport.FirstName
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Сотрудник</title>
+    <link href="~/css/css.css" rel="stylesheet">
+</head>
+<body style="font-size: 18px;">
+    <h2 style="text-align:center; margin-top: 30px;">@Model.Passport.FirstName @Model.Passport.LastName</h2>
+    <h3 style="text-align:center; margin-top: -10px;">@Model.Passport.LastName @Model.Passport.FirstName @Model.Passport.MiddleName</h3>
+    <div class="info" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2); max-width: 700px; margin: auto;">
+        <img src="~/images/employee.jpg" style="width: 25%;">
+        <p>
+        <p id="one">
+            <h4>Должность</h4><br>
+        <p style="margin-top: -38px;">@Model.Purpose.Position</p>
+        </p>
+        <p id="second">
+            <h4>Отдел</h4><br>
+        <p style="margin-top: -38px;">@Model.Purpose.SubDivision</p>
+        </p>
+        <p>
+            <h4>Дата рождения</h4><br>
+            <input type="text" name="birth_day" style="margin-top: -38px;" readonly="" value="@Model.Passport.BirthDate">
+        </p>
+        <div id="output_blocks">
+            <div>
+                <h4 style="">Место рождения</h4><br>
+                <input style="margin-top: -38px;" type="text" size="28" name="issuing_authority" readonly="" value="@Model.Passport.BirthPlace.Country, @Model.Passport.BirthPlace.City"><br>
+                <h4>Орган выдачи</h4><br>
+                <input style="margin-top: -38px;" type="text" size="28" name="issuing_authority" readonly="" value="@Model.Passport.IssuingAuthority"><br>
+
+            </div>
+            <div>
+                <h4>Идентификационный номер</h4><br>
+                <input style="margin-top: -38px;" type="text" size="28" name="passport_number" readonly="" value="@Model.Passport.IdentNumber"><br>
+                <h4>Семейное положение</h4><br>
+                <input style="margin-top: -38px;" type="text" size="12" name="marital_statuse" readonly="" value="@Model.Passport.MaritalStatus"><br>
+            </div>
+        </div>
+        </p>
+    </div>
+</body>
+</html>

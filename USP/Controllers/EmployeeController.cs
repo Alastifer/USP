@@ -11,9 +11,9 @@ namespace USP.Controllers
     public class EmployeeController : Controller
     {
         [Authorize]
-        public IActionResult Index(int id, EmployeeContext employeeContext)
+        public IActionResult Index(int Id, EmployeeContext employeeContext)
         {
-            Employee employee = employeeContext.GetEmployee(id);
+            Employee employee = employeeContext.GetEmployee(Id);
             return PartialView(employee);
         }
     }

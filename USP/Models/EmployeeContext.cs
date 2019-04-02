@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using USP.ViewModels;
 
 namespace USP.Models
 {
@@ -52,7 +53,6 @@ namespace USP.Models
                 {
                     while (reader.Read())
                     {
-                        reader["id"].ToString();
                         list.Add(new Employee()
                         {
                             Id = Convert.ToInt32(reader["id"]),
@@ -99,6 +99,17 @@ namespace USP.Models
             }
 
             return employee;
+        }
+
+        public void InsertEmployee(EmployeeModel employeeModel)
+        {
+            using (MySqlConnection conn = GetConnection())
+            {
+                conn.Open();
+                string sql = string.Format("INSERT INTO employees (passport_number) VALUES (\'" + employeeModel.FirstName + "\')");
+                MySqlCommand cmd = new MySqlCommand(sql, conn);
+                cmd.ExecuteNonQuery();
+            }
         }
     }
 }

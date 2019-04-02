@@ -20,43 +20,43 @@ DROP TABLE IF EXISTS insurance_types;
 
 CREATE TABLE users (
 	email VARCHAR(400),
-	password VARCHAR(400) NOT NULL,
+	password VARCHAR(400),
 	PRIMARY KEY (email)
 );
 
 CREATE TABLE insurance_types (
 	id INT AUTO_INCREMENT,
-	name VARCHAR(400) NOT NULL,
+	name VARCHAR(400),
 	PRIMARY KEY (id)
 );
 
 CREATE TABLE insurances (
-	id INT UNIQUE NOT NULL,
-	id_insurance_type INT NOT NULL,
+	id INT UNIQUE,
+	id_insurance_type INT,
 	PRIMARY KEY (id),
 	FOREIGN KEY (id_insurance_type) REFERENCES insurance_types(id)
 );
 
 CREATE TABLE positions (
 	id INT AUTO_INCREMENT,
-	name VARCHAR(400) NOT NULL,
+	name VARCHAR(400),
 	PRIMARY KEY (id)
 );
 
 CREATE TABLE subdivisions (
 	id INT AUTO_INCREMENT,
-	name VARCHAR(400) NOT NULL,
+	name VARCHAR(400),
 	PRIMARY KEY (id)
 );	
 
 CREATE TABLE purposes (
 	id INT AUTO_INCREMENT,
-	id_position INT NOT NULL,
-	id_subdivision INT NOT NULL,
-	appointment_date DATE NOT NULL,
-	bets FLOAT NOT NULL,
-	salary FLOAT NOT NULL,
-	order_number INT NOT NULL,
+	id_position INT,
+	id_subdivision INT,
+	appointment_date DATE,
+	bets FLOAT,
+	salary FLOAT,
+	order_number INT,
 	PRIMARY KEY (id),
 	FOREIGN KEY (id_position) REFERENCES positions(id),
 	FOREIGN KEY (id_subdivision) REFERENCES subdivisions(id)
@@ -64,29 +64,29 @@ CREATE TABLE purposes (
 
 CREATE TABLE specialties (
 	id INT AUTO_INCREMENT,
-	name VARCHAR(400) NOT NULL,
+	name VARCHAR(400),
 	PRIMARY KEY (id)
 );
 
 CREATE TABLE qualifications (
 	id INT AUTO_INCREMENT,
-	name VARCHAR(400) NOT NULL,
+	name VARCHAR(400),
 	PRIMARY KEY (id)
 );
 
 CREATE TABLE education_types (
 	id INT AUTO_INCREMENT,
-	name VARCHAR(400) NOT NULL,
+	name VARCHAR(400),
 	PRIMARY KEY (id)
 );
 
 CREATE TABLE educations (
 	id INT AUTO_INCREMENT,
-	name VARCHAR(400) NOT NULL,
-	id_specialty INT NOT NULL,
-	id_qualification INT NOT NULL,
-	id_education_type INT NOT NULL,
-	begin_year INT NOT NULL,
+	name VARCHAR(400),
+	id_specialty INT,
+	id_qualification INT,
+	id_education_type INT,
+	begin_year INT,
 	end_year INT,
 	PRIMARY KEY (id),
 	FOREIGN KEY (id_specialty) REFERENCES specialties(id),
@@ -96,14 +96,14 @@ CREATE TABLE educations (
 
 CREATE TABLE addresses (
 	id INT AUTO_INCREMENT,
-	country VARCHAR(400) NOT NULL,
-	region VARCHAR(400) NOT NULL,
-	district VARCHAR(400) NOT NULL,
-	city VARCHAR(400) NOT NULL,
-	address_index INT NOT NULL,
-	street VARCHAR(400) NOT NULL,
-	house INT NOT NULL,
-	flat INT NOT NULL,
+	country VARCHAR(400),
+	region VARCHAR(400),
+	district VARCHAR(400),
+	city VARCHAR(400),
+	address_index INT,
+	street VARCHAR(400),
+	house INT,
+	flat INT,
 	corps INT,
 	home_phone VARCHAR(400),
 	mobile_phone VARCHAR(400),
@@ -112,34 +112,34 @@ CREATE TABLE addresses (
 
 CREATE TABLE citizenships (
 	id INT AUTO_INCREMENT,
-	name VARCHAR(400) NOT NULL,
+	name VARCHAR(400),
 	PRIMARY KEY (id)
 );
 
 CREATE TABLE genders (
 	id INT AUTO_INCREMENT,
-	name VARCHAR(400) NOT NULL,
+	name VARCHAR(100),
 	PRIMARY KEY (id)
 );
 
 CREATE TABLE marital_statuses (
 	id INT AUTO_INCREMENT,
-	name VARCHAR(400) NOT NULL,
+	name VARCHAR(400),
 	PRIMARY KEY (id)
 );
 
 CREATE TABLE passports (
-	passport_number VARCHAR(400) UNIQUE NOT NULL,
-	first_name VARCHAR(400) NOT NULL,
-	last_name VARCHAR(400) NOT NULL,
-	middle_name VARCHAR(400) NOT NULL,
-	birth_date DATE NOT NULL,
-	issuing_authority VARCHAR(1400) NOT NULL,
-	ident_number VARCHAR(400) UNIQUE NOT NULL,
-	id_citizenship INT NOT NULL,
-	id_gender INT NOT NULL,
-	id_marital_status INT NOT NULL,
-	id_birth_place INT NOT NULL,
+	passport_number VARCHAR(400) UNIQUE,
+	first_name VARCHAR(400),
+	last_name VARCHAR(400),
+	middle_name VARCHAR(400),
+	birth_date DATE,
+	issuing_authority VARCHAR(100),
+	ident_number VARCHAR(400) UNIQUE,
+	id_citizenship INT,
+	id_gender INT,
+	id_marital_status INT,
+	id_birth_place INT,
 	PRIMARY KEY (passport_number),
 	FOREIGN KEY (id_citizenship) REFERENCES citizenships(id),
 	FOREIGN KEY (id_gender) REFERENCES genders(id),
@@ -149,12 +149,12 @@ CREATE TABLE passports (
 	
 CREATE TABLE employees (
 	id INT AUTO_INCREMENT,
-	trade_union BIT(1) NOT NULL,
-	passport_number VARCHAR(400) NOT NULL,
-	id_registration INT NOT NULL,
-	id_residence INT NOT NULL,
-	id_insurance INT NOT NULL,
-	id_purpose INT NOT NULL,
+	trade_union BIT(1),
+	passport_number VARCHAR(400),
+	id_registration INT,
+	id_residence INT,
+	id_insurance INT,
+	id_purpose INT,
 	PRIMARY KEY (id),
 	FOREIGN KEY (passport_number) REFERENCES passports(passport_number),
 	FOREIGN KEY (id_registration) REFERENCES addresses(id),
@@ -164,8 +164,8 @@ CREATE TABLE employees (
 );
 
 CREATE TABLE education2employee (
-	id_education INT NOT NULL,
-	id_employee INT NOT NULL,
+	id_education INT,
+	id_employee INT,
 	FOREIGN KEY (id_education) REFERENCES educations(id),
 	FOREIGN KEY (id_employee) REFERENCES employees(id)
 );

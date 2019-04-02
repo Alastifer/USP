@@ -1,0 +1,34 @@
+﻿@model USP.ViewModels.EmployeeModel
+
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление сотрудника</title>
+    <link href="~/css/css.css" rel="stylesheet">
+</head>
+<body>
+    <form asp-action="Create" asp-controller="AddEmployee" asp-anti-forgery="true">
+        <div>
+            <fieldset>
+                <legend id="label" style="font-size: 18px;">Паспортные данные</legend>
+                <div id="passport">
+                    <div id="col1">
+                        <label asp-for="FirstName">Имя</label><br>
+                        <input asp-for="FirstName" type="text"><br>
+                        <span asp-validation-for="FirstName" />
+
+                        <label asp-for="LastName">Фамилия</label><br>
+                        <input asp-for="LastName" type="text"><br>
+                        <span asp-validation-for="LastName" />
+
+                        <label asp-for="MiddleName">Отчество</label><br>
+                        <input asp-for="MiddleName" type="text"><br>
+                        <span asp-validation-for="MiddleName" />
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+        <input id="buttom_creation" type="submit" name="creation_buttom" value="Создать">
+    </form>
+</body>
+</html>
